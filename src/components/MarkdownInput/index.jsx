@@ -1,12 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SaveButton from "components/SaveButton";
 import NoteDisplay from "components/NoteDisplay";
 import { Row, Col } from "react-bootstrap";
 import "./index.scss";
 
 const MarkdownInput = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const useStateLocalStorage = (key) => {
+    const [element, setElement] = useState(
+      localStorage.getItem(key) || ""
+    );
+    useEffect(() => {
+      localStorage.setItem(key, element);
+    }, [key, element]);
+
+    return [element, setElement];
+  };
+
+  const [title, setTitle] = useStateLocalStorage("title");
+  const [content, setContent] = useStateLocalStorage("content");
 
   return (
     <Col>

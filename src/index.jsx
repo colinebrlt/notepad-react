@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import MarkdownInput from "components/MarkdownInput";
-import AddNoteButton from "components/AddNoteButton";
+import NotesList from "components/NotesList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import "./main.scss";
@@ -11,7 +11,7 @@ const App = () => (
     <Row>
       <Col sm={3} className="left-column">
         <Row>
-          <AddNoteButton />
+          <NotesList />
           <p></p>
         </Row>
       </Col>
