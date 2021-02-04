@@ -39,6 +39,7 @@ const MarkdownInput = () => {
           rows="9"
         />
       </Row>
+      <span>La sauvegarde est automatique, mais tu peux cliquer si tu veux !</span>
       <SaveButton title={title} content={content} />
     </Col>
   );
