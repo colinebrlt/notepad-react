@@ -24,3 +24,12 @@ h2 {
 p {
   color: $color-white;
 }
+
+.left-column {
+  border-right: solid white;
+  margin-top: 15px;
+}
+
+.right-column {
+  margin-top: 15px;
+}

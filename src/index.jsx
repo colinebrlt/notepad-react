@@ -9,13 +9,13 @@ import "./main.scss";
 const App = () => (
   <Container>
     <Row>
-      <Col sm={3}>
+      <Col sm={3} className="left-column">
         <Row>
           <AddNoteButton />
           <p></p>
         </Row>
       </Col>
-      <Col sm={9}>
+      <Col sm={9} className="right-column">
         <MarkdownInput />
       </Col>
     </Row>

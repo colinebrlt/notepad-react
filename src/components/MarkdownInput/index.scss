@@ -2,6 +2,10 @@ input, textarea {
   padding: 15px;
 }
 
+input:focus, textarea:focus {
+  outline:none;
+}
+
 .textarea-section {
   background-color: rgb(120, 120, 120);
   width: 100%;

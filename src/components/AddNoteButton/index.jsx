@@ -3,14 +3,16 @@ import { Row } from "react-bootstrap";
 import "./index.scss";
 
 const SaveButton = (props) => {
-  const handleClick = () => {
-    const note = { title: props.title, content: props.content };
-    localStorage.setItem(props.title, JSON.stringify(note));
+  const handleSave = () => {
+    const blocNote = { title: props.title, content: props.content };
+    localStorage.setItem(props.title, JSON.stringify(blocNote));
+    console.log("coucou");
+    console.log(localStorage.getItem('blocNote'));
   };
 
   return (
     <Row>
-      <button type="button" className="button" onClick={handleClick}>
+      <button type="button" className="button" onClick={handleSave}>
         Ajouter une note
       </button>
     </Row>
