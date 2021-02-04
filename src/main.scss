@@ -1,0 +1,26 @@
+$color-black: #1C1C1C;
+$color-red: #C70524;
+$color-white: #F0F0F0;
+$color-grey: #4B4B4B;
+
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: $color-red;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h2 {
+  color: $color-white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+p {
+  color: $color-white;
+}
