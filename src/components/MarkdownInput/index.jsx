@@ -5,42 +5,44 @@ import { Row, Col } from "react-bootstrap";
 import "./index.scss";
 
 const MarkdownInput = () => {
-  const useStateLocalStorage = (key) => {
-    const [element, setElement] = useState(
-      localStorage.getItem(key) || ""
-    );
-    useEffect(() => {
-      localStorage.setItem(key, element);
-    }, [key, element]);
+  useEffect(() => {
+    const localStorageLength = localStorage.length;
+    if (localStorageLength > 0) {
+      const storageContent = localStorage.getItem(localStorage.key(0));
+      const convertedNote = JSON.parse(storageContent);
+      setNote(convertedNote);
+    }
+  }, []);
 
-    return [element, setElement];
-  };
+  const [note, setNote] = useState(localStorage.getItem('blocNote') || {title: "", content: ""});
 
-  const [title, setTitle] = useStateLocalStorage("title");
-  const [content, setContent] = useStateLocalStorage("content");
+  useEffect(() => {
+    const blocNote = { title: note.title, content: note.content };
+    localStorage.setItem('blocNote', JSON.stringify(blocNote));
+  }, [note]);
 
   return (
     <Col>
-      <NoteDisplay title={title} content={content} /> 
+      <NoteDisplay title={note.title} content={note.content} /> 
       <Row>
         <input
           placeholder="Mon titre"
           className="textarea-section"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={note.title}
+          onChange={(e) => setNote({title: e.target.value, content: note.content})}
         />
       </Row>
       <Row>
         <textarea
           placeholder="Mon contenu"
           className="textarea-section"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
+          value={note.content}
+          onChange={(e) => setNote({title: note.title, content: e.target.value})}
           rows="9"
         />
       </Row>
       <span>La sauvegarde est automatique, mais tu peux cliquer si tu veux !</span>
-      <SaveButton title={title} content={content} />
+      <SaveButton title={note.title} content={note.content} />
     </Col>
   );
 };

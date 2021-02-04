@@ -3,7 +3,14 @@ import { Row } from "react-bootstrap";
 import "./index.scss";
 import OneNote from '../OneNote';
 
+
 const NotesList = () => {
+
+  // const array = [];
+
+  // for (let i = 0; i < localStorage.length; i++) {
+  //   let item = localStorage.getItem(localStorage.key(i))
+  // }
 
   const getNotes = (defaultValue, key) => {
     const storedValue = localStorage.getItem(key);
